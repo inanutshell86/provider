@@ -3,6 +3,10 @@ export {}
 declare global {
   namespace Cypress {
     interface Chainable<Subject> {
+      /** If the token exists, reuse it
+       * If no token exists, gets a token. */
+      maybeGetToken(sessionName: string): Chainable<string>
+
       /** https://www.npmjs.com/package/@cypress/skip-test
        * `cy.skipOn('localhost')` */
       skipOn(
